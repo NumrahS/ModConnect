@@ -1,0 +1,83 @@
+img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.top-left { /*IT expert and web designer*/
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.centered /*home page*/ {
+  position: absolute;
+  top: 5%;
+  left: 35%;
+  transform: translate(5%, 15%);
+
+}
+
+/* .bottom-right  {
+  position: absolute;
+  bottom: -750px;
+  right: 20px; - footer */
+}
+
+/* .bottom-left  {
+  position: absolute;
+  bottom: 300px;
+  left: 16px; - education
+} */
+
+ .top-right {
+  position: absolute;
+  top: 700px;
+  right: 15px;
+  font-size: 15px;
+}
+
+
+.topnav {
+  background-color: black;
+  overflow: hidden;
+}
+
+.topnav a {
+ float: left;
+ color: #f2f2f2;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-size: 17px;
+}
+
+.topnav a:hover {
+ background-color: #ddd;
+ color: black;
+}
+
+.topnav a.active {
+ background-color: #4CAF50;
+ color: white;
+}
+
+h2 {
+  margin-top: -50px;
+}
+
+ul.square {
+  list-style-type: square;
+}
+
+li {
+  color: white;
+  font-family: verdana;
+  font-size: 120%;
+}

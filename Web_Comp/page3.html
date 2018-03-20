@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CODE-FIRST-COMP</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style type="text/css">
+
+  .footer {
+      position: absolute;
+      left: 0;
+      bottom: 100;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      margin-top: 500px;
+  }
+
+  h3 {
+    color: black;
+    font-size: 300%;
+    padding-top: 320px;
+  }
+
+  h4 {
+    color: black;
+    font-size: 200%;
+
+  }
+
+  p {
+    color: black;
+    font-family: verdana;
+    font-size: 15px;
+    font-weight: 900;
+    margin-right: 50px;
+  }
+
+  a:link {
+      color: white;
+      background-color: transparent;
+      text-decoration: none;
+
+  }
+
+  a:visited {
+      color: white;
+      background-color: transparent;
+      text-decoration: none;
+
+  }
+
+  a:hover {
+      color: white;
+      background-color: transparent;
+      text-decoration: underline;
+  }
+
+    .carouselbox {
+      font-family: helvetica,sans-serif;
+      font-size: 14px;
+      width: 1245px;
+
+      margin: 1em;
+      overflow: hidden;
+    }
+
+    .content li {
+      font-size: 100px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      list-style: none;
+      text-align: center;
+      z-index: 2;
+    }
+    .active {
+      height: 215px;
+    }
+    .carouselbox button {
+      border: none;
+      visibility: hidden;
+    }
+    .active button {
+      visibility: visible;
+    }
+    .offscreen {
+      position: absolute;
+      left: -2000px;
+    }
+    .active .buttons {
+      padding: 5px 0;
+      background: #eee;
+      text-align: center;
+      z-index: 10;
+      position: relative;
+    }
+    .active li {
+      position: absolute;
+      margin-top: 650px;
+      top: 20px;
+      opacity: 0;
+      transform: scale(0);
+      transition: 1s;
+    }
+    .active li.current {
+      top: 20px;
+      opacity: 1;
+      transform: scale(1);
+      transition: 1s;
+    }
+    .li img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+  <img src="picture1.jpg"
+  width="2000"
+  height="1600"
+  alt="cover picture">
+
+  </div>
+
+  <div class="topnav">
+
+    <a href="index.html">Home</a>
+   <a href="about.html">About</a>
+   <a class="active" href="page3.html">Places To Stay</a>
+   <a href="architecture.html">Kerry Castles</a>
+
+  </div>
+
+  <div class="top-left">
+
+    <h1 style="color:black;font-size:500%"> KERRY </h1>
+    <h2 style="color:beige;font-size: 290%">KILLARNEY</h2>
+
+  </div>
+
+
+
+<div class="carouselbox">
+  <div class="buttons">
+    <button class="prev">
+       ◀ <span class="offscreen">Previous</span>
+    </button>
+    <button class="next">
+      <span class="offscreen">Next</span> ▶
+    </button>
+  </div>
+  <ol class="content">
+    <li><img src="1pic.jpg" alt="1"></li>
+    <li><img src="hotel1.jpg" alt="2"></li>
+    <li><img src="1.1.jpg" alt="3"></li>
+    <li><img src="1.2.jpg" alt="4"></li>
+    <li><img src="1.3.jpg" alt="5"></li>
+    <li><img src="1.4.jpg" alt="6"></li>
+    <li><img src="1.5.jpg" alt="7"></li>
+    <li><img src="pic2.jpg" alt="8"></li>
+    <li><img src="2.1.jpg" alt="3"></li>
+    <li><img src="2.2.jpg" alt="4"></li>
+    <li><img src="2.3.jpg" alt="5"></li>
+    <li><img src="2.4.jpg" alt="6"></li>
+    <li><img src="2.5.jpg" alt="7"></li>
+    <li><img src="pic3.jpg" alt="8"></li>
+    <li><img src="hotel3.jpg" alt="3"></li>
+    <li><img src="3.1.jpg" alt="4"></li>
+    <li><img src="3.2.jpg" alt="5"></li>
+    <li><img src="3.3.jpg" alt="6"></li>
+    <li><img src="last1.jpg" alt="7"></li>
+  </ol>
+</div>
+
+
+
+<script>
+carousel = (function(){
+  // Read necessary elements from the DOM once
+  var box = document.querySelector('.carouselbox');
+  var next = box.querySelector('.next');
+  var prev = box.querySelector('.prev');
+  // Define the global counter, the items and the
+  // current item
+  var counter = 0;
+  var items = box.querySelectorAll('.content li');
+  var amount = items.length;
+  var current = items[0];
+  box.classList.add('active');
+  // navigate through the carousel
+  function navigate(direction) {
+    // hide the old current list item
+    current.classList.remove('current');
+
+    // calculate the new position
+    counter = (counter + direction) % amount;
+    counter = counter < 0 ? amount - 1 : counter;
+    // set new current element
+    // and add CSS class
+    current = items[counter];
+    current.classList.add('current');
+  }
+  // add event handlers to buttons
+  next.addEventListener('click', function(ev) {
+    navigate(1);
+  });
+  prev.addEventListener('click', function(ev) {
+    navigate(-1);
+  });
+  // show the first element
+  // (when direction is 0 counter doesn't change)
+  navigate(0);
+})();
+
+</script>
+
+</div>
+
+<div class ="bottom-right">
+
+<div class="footer">
+  <p style="color:white;"> copyright © ModConnect </p>
+</div>
+
+</div>
+
+</body>
+</html>
